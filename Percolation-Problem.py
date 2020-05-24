@@ -74,22 +74,21 @@ class Percolation:
 
 # Test
 
-def simulate(N, T):
+def simulate(N):
     '''
     Opens T random cells in an N-by-N grid
     '''
     grid = Percolation(N)
     options = list(range(grid.total))
 
-    for i in range(T):
+    while not grid.percolates():
         randIndex = options.pop(random.randint(0, len(options) - 1))
         randCell = randIndex // grid.N, randIndex % grid.N
 
         grid.open(*randCell)
+        grid.dfs(*randCell)
 
-    grid.show()
+    return grid.countHoles()/grid.total
 
-# grid.dfs(0, 0)
-# print()
 
-simulate(4,5)
+print(simulate(4))
