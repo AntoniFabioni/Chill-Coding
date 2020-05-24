@@ -123,8 +123,29 @@ def simulate(N):
 
     return grid.countHoles()/grid.total
 
+def demo(N):
+    '''
+    Visual of percolation on an N-by-N grid
+    '''
+    grid = Percolation(N)
+    options = list(range(grid.total))
+
+    while not grid.percolates():
+        '''
+        Choose a random blocked cell and open it
+        '''
+        randIndex = options.pop(random.randint(0, len(options) - 1))
+        randCell = randIndex // grid.N, randIndex % grid.N
+
+        grid.open(*randCell)
+        grid.update(*randCell)
+
+    grid.show()
+
 trials = []
 for i in range(100):
     trials.append(simulate(20))
 
 print(np.mean(trials))
+
+demo(8)
