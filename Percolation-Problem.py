@@ -3,6 +3,7 @@
 # The goal is to estimate the proportion that leads to near certain percolation.
 
 import numpy as np
+import random
 
 class Percolation:
     
@@ -64,27 +65,7 @@ class Percolation:
             self.dfs(row + 1, col)
             self.dfs(row, col - 1)
             self.dfs(row, col + 1)
-
-    # def neighborhood(self, x, y):
-    #     '''
-    #     Returns indices of cells adjacent to the one passed
-    #     as an agument. Ignores cells outside of grid.
-    #     '''
-    #     nearby = []
-
-    #     for xSum in range(x - 1, x + 2):
-    #         if xSum == x or xSum < 0 or xSum > self.N - 1:
-    #             continue     
-    #         nearby.append([xSum, y])
-            
-    #     for ySum in range(y - 1, y + 2):
-    #         if ySum == y or ySum < 0 or ySum > self.N - 1:
-    #             continue        
-    #         nearby.append([x, ySum])
-            
-    #     return nearby
         
-    
     def countHoles(self):
         '''
         Counts how many cells are either opened or full
@@ -92,18 +73,23 @@ class Percolation:
         return np.count_nonzero(self.rows)
 
 # Test
-fourbyfour = Percolation(4)
-fourbyfour.open(0, 0)
-fourbyfour.open(1, 1)
-fourbyfour.open(1, 0)
-fourbyfour.open(2, 2)
-fourbyfour.open(1, 2)
-fourbyfour.open(3, 3)
-fourbyfour.open(2, 3)
 
-fourbyfour.show()
+def simulate(N, T):
+    '''
+    Opens T random cells in an N-by-N grid
+    '''
+    grid = Percolation(N)
+    options = list(range(grid.total))
 
-fourbyfour.dfs(1, 0)
+    for i in range(T):
+        randIndex = options.pop(random.randint(0, len(options) - 1))
+        randCell = randIndex // grid.N, randIndex % grid.N
 
-print(" ")
-fourbyfour.show()
+        grid.open(*randCell)
+
+    grid.show()
+
+# grid.dfs(0, 0)
+# print()
+
+simulate(4,5)
