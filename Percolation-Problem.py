@@ -1,5 +1,5 @@
 # An N-by-N grid has some proportion of cells "blocked", and the rest "open".
-# The grid percolated if there is a contiguous path from the top row to the bottom row of open cells.
+# The grid percolates if there is a contiguous path from the top row to the bottom row of open cells.
 # The goal is to estimate the proportion that leads to near certain percolation.
 
 import numpy as np
@@ -20,17 +20,41 @@ class Percolation:
         for row in self.rows:
             print(row)
     
+    def inBounds(self, row, col):
+        if row < 0 or row > self.N:
+            return False
+        elif col < 0 or col > self.N:
+            return False
+        else:
+            return True
+    
     def open(self, row, col):
-        self.rows[row][col] = Percolation.opened
+        try:
+            self.rows[row][col] = Percolation.opened
+        except:
+            pass
+        #     print("(%d, %d) is out of bounds" % (row, col))
 
     def isOpened(self, row, col):
-        return self.rows[row][col] == Percolation.opened
+        try:
+            return self.rows[row][col] == Percolation.opened
+        except:
+            pass
+        #     print("(%d, %d) is out of bounds" % (row, col))
 
     def fill(self, row, col):
-        self.rows[row][col] = Percolation.full
+        try:
+            self.rows[row][col] = Percolation.full
+        except:
+            pass
+        #     print("(%d, %d) is out of bounds" % (row, col))
 
     def isFull(self, row, col):
-        return self.rows[row][col] == Percolation.full
+        try:
+            return self.rows[row][col] == Percolation.full
+        except:
+            pass
+        #     print("(%d, %d) is out of bounds" % (row, col))
 
     def percolates(self):
         '''
@@ -42,53 +66,65 @@ class Percolation:
         return False
 
     def dfs(self, row, col):
-        if not self.percolates():
-            '''
-            Acronym of "Depth-First Search"
-            Ignores cells out of grid, blocked, or currently filled
-            '''
-            if row < 0 or row > self.N:
-                return
-            if col < 0 or col > self.N:
-                return
-            if not self.isOpened(row, col):
-                return
-            if self.isFull(row, col):
-                return
-            
-            '''
-            Fills the cell and its direct neighbours
-            '''
-            self.fill(row, col)
-
-            self.dfs(row - 1, col)
-            self.dfs(row + 1, col)
-            self.dfs(row, col - 1)
-            self.dfs(row, col + 1)
+        '''
+        Acronym of "Depth-First Search"
+        Ignores cells out of grid, blocked, or currently filled
+        '''
+        if not self.inBounds(row, col):
+            return
+        if not self.isOpened(row, col) or self.isFull(row, col):
+            return
         
+        '''
+        Fills the cell and its direct neighbours
+        '''
+        self.fill(row, col)
+
+        self.dfs(row - 1, col)
+        self.dfs(row + 1, col)
+        self.dfs(row, col - 1)
+        self.dfs(row, col + 1)
+        
+    def update(self, row, col):
+        if row == 0:
+            self.dfs(row, col)
+        elif row != 0 and self.rows[row - 1][col] == Percolation.full:
+            self.dfs(row, col)
+        elif row != self.N - 1 and self.rows[row + 1][col] == Percolation.full:
+            self.dfs(row, col)
+        elif col != 0 and self.rows[row][col - 1] == Percolation.full:
+            self.dfs(row, col)
+        elif col != self.N - 1 and self.rows[row][col + 1] == Percolation.full:
+            self.dfs(row, col)
+    
     def countHoles(self):
         '''
         Counts how many cells are either opened or full
         '''
         return np.count_nonzero(self.rows)
 
-# Test
 
 def simulate(N):
     '''
-    Opens T random cells in an N-by-N grid
+    Simulates percolation on an N-by-N grid
     '''
     grid = Percolation(N)
     options = list(range(grid.total))
 
     while not grid.percolates():
+        '''
+        Choose a random blocked cell and open it
+        '''
         randIndex = options.pop(random.randint(0, len(options) - 1))
         randCell = randIndex // grid.N, randIndex % grid.N
 
         grid.open(*randCell)
-        grid.dfs(*randCell)
+        grid.update(*randCell)
 
     return grid.countHoles()/grid.total
 
+trials = []
+for i in range(100):
+    trials.append(simulate(20))
 
-print(simulate(4))
+print(np.mean(trials))
