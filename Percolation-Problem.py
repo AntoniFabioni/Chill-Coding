@@ -21,6 +21,9 @@ class Percolation:
     def isOpened(self, x, y):
         return self.open(x,y) == Percolation.opened
 
+    def fill(self, x, y):
+        self.rows[x][y] = Percolation.full
+
     def isFull(self, x, y):
         return self.open(x,y) == Percolation.full
 
@@ -32,6 +35,23 @@ class Percolation:
             if self.isFull(self.N - 1, y):
                 return True
         return False
+
+    def dfs(self, x, y):
+        if x < 0 or x > self.N:
+            return
+        if y < 0 or y > self.N:
+            return
+        if not self.isOpened(x, y):
+            return
+        if self.isFull(x, y):
+            return
+        
+        self.fill(x, y)
+
+        self.dfs(x - 1, y)
+        self.dfs(x + 1, y)
+        self.dfs(x, y - 1)
+        self.dfs(x, y + 1)
 
     # def neighborhood(self, x, y):
     #     '''
@@ -63,4 +83,3 @@ class Percolation:
 fourbyfour = Percolation(4)
 fourbyfour.open(1, 1)
 fourbyfour.open(0, 3)
-print(fourbyfour.countHoles())
