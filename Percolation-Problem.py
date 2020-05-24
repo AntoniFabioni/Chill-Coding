@@ -2,50 +2,65 @@
 # The grid percolated if there is a contiguous path from the top row to the bottom row of open cells.
 # The goal is to estimate the proportion that leads to near certain percolation.
 
+import numpy as np
+
 class Percolation:
+    
+    blocked = 0
+    opened = 1
+    full = 2
 
     def __init__(self, N):
         self.N = N
         self.total = N**2
-        self.rows = [[1]*N for i in range(N)]
+        self.rows = [[Percolation.blocked]*N for row in range(N)]   #Creates N-by-N grid of blocked cells
     
     def open(self, x, y):
-        self.rows[x][y] = 0
+        self.rows[x][y] = Percolation.opened
 
-    def isOpen(self, x, y):
-        return self.open(x,y) == 0
+    def isOpened(self, x, y):
+        return self.open(x,y) == Percolation.opened
 
-    def neighborhood(self, x, y):
+    def isFull(self, x, y):
+        return self.open(x,y) == Percolation.full
+
+    def percolates(self):
         '''
-        Returns indices of cells adjacent to the one passed
-        as an agument. Ignores cells outside of grid.
+        Checks if any cells on the bottom row are full
         '''
-        nearby = []
+        for y in range(self.N):
+            if self.isFull(self.N - 1, y):
+                return True
+        return False
 
-        for xSum in range(x - 1, x + 2):
-            if xSum == x or xSum < 0 or xSum > self.N - 1:
-                continue     
-            nearby.append([xSum, y])
+    # def neighborhood(self, x, y):
+    #     '''
+    #     Returns indices of cells adjacent to the one passed
+    #     as an agument. Ignores cells outside of grid.
+    #     '''
+    #     nearby = []
+
+    #     for xSum in range(x - 1, x + 2):
+    #         if xSum == x or xSum < 0 or xSum > self.N - 1:
+    #             continue     
+    #         nearby.append([xSum, y])
             
-        for ySum in range(y - 1, y + 2):
-            if ySum == y or ySum < 0 or ySum > self.N - 1:
-                continue        
-            nearby.append([x, ySum])
+    #     for ySum in range(y - 1, y + 2):
+    #         if ySum == y or ySum < 0 or ySum > self.N - 1:
+    #             continue        
+    #         nearby.append([x, ySum])
             
-        return nearby
+    #     return nearby
         
     
-    def countOpen(self):
+    def countHoles(self):
         '''
-        Number of cells minus sum of elements.
+        Counts how many cells are either opened or full
         '''
-        return self.total - sum([sum(i) for i in self.rows])
-    
-
+        return np.count_nonzero(self.rows)
 
 # Test
-fivebyfive = Percolation(4)
-fivebyfive.open(1, 1)
-fivebyfive.open(0, 3)
-print(fivebyfive.rows)
-print(fivebyfive.neighborhood(3, 2))
+fourbyfour = Percolation(4)
+fourbyfour.open(1, 1)
+fourbyfour.open(0, 3)
+print(fourbyfour.countHoles())
