@@ -14,44 +14,56 @@ class Percolation:
         self.N = N
         self.total = N**2
         self.rows = [[Percolation.blocked]*N for row in range(N)]   #Creates N-by-N grid of blocked cells
+
+    def show(self):
+        for row in self.rows:
+            print(row)
     
-    def open(self, x, y):
-        self.rows[x][y] = Percolation.opened
+    def open(self, row, col):
+        self.rows[row][col] = Percolation.opened
 
-    def isOpened(self, x, y):
-        return self.open(x,y) == Percolation.opened
+    def isOpened(self, row, col):
+        return self.rows[row][col] == Percolation.opened
 
-    def fill(self, x, y):
-        self.rows[x][y] = Percolation.full
+    def fill(self, row, col):
+        self.rows[row][col] = Percolation.full
 
-    def isFull(self, x, y):
-        return self.open(x,y) == Percolation.full
+    def isFull(self, row, col):
+        return self.rows[row][col] == Percolation.full
 
     def percolates(self):
         '''
         Checks if any cells on the bottom row are full
         '''
-        for y in range(self.N):
-            if self.isFull(self.N - 1, y):
+        for col in range(self.N):
+            if self.isFull(self.N - 1, col):
                 return True
         return False
 
-    def dfs(self, x, y):
-        if x < 0 or x > self.N:
-            return
-        if y < 0 or y > self.N:
-            return
-        if not self.isOpened(x, y):
-            return
-        if self.isFull(x, y):
-            return
-        
-        self.fill(x, y)
+    def dfs(self, row, col):
+        if not self.percolates():
+            '''
+            Acronym of "Depth-First Search"
+            Ignores cells out of grid, blocked, or currently filled
+            '''
+            if row < 0 or row > self.N:
+                return
+            if col < 0 or col > self.N:
+                return
+            if not self.isOpened(row, col):
+                return
+            if self.isFull(row, col):
+                return
+            
+            '''
+            Fills the cell and its direct neighbours
+            '''
+            self.fill(row, col)
 
-        self.dfs(x - 1, y)
-        self.dfs(x + 1, y)
-        self.dfs(x, y - 1)
-        self.dfs(x, y + 1)
+            self.dfs(row - 1, col)
+            self.dfs(row + 1, col)
+            self.dfs(row, col - 1)
+            self.dfs(row, col + 1)
 
     # def neighborhood(self, x, y):
     #     '''
@@ -81,5 +93,17 @@ class Percolation:
 
 # Test
 fourbyfour = Percolation(4)
+fourbyfour.open(0, 0)
 fourbyfour.open(1, 1)
-fourbyfour.open(0, 3)
+fourbyfour.open(1, 0)
+fourbyfour.open(2, 2)
+fourbyfour.open(1, 2)
+fourbyfour.open(3, 3)
+fourbyfour.open(2, 3)
+
+fourbyfour.show()
+
+fourbyfour.dfs(1, 0)
+
+print(" ")
+fourbyfour.show()
