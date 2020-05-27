@@ -1,6 +1,8 @@
 # An N-by-N grid has some proportion of cells "blocked", and the rest "open".
 # The grid percolates if there is a contiguous path from the top row to the bottom row of open cells.
-# The goal is to estimate the proportion that leads to near certain percolation.
+# We imagine that a source of water fills the open cells starting at the top, and moves to the bottom.
+# The goal is to estimate the proportion of open cells that leads to near certain percolation.
+# This is done with a Monte Carlo simulation.
 
 import numpy as np
 import random
