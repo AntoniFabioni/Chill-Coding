@@ -31,11 +31,7 @@ class Percolation:
             return True
     
     def open(self, row, col):
-        try:
-            self.rows[row][col] = Percolation.opened
-        except:
-            pass
-        #     print("(%d, %d) is out of bounds" % (row, col))
+        self.rows[row][col] = Percolation.opened
 
     def isOpened(self, row, col):
         try:
@@ -45,18 +41,10 @@ class Percolation:
         #     print("(%d, %d) is out of bounds" % (row, col))
 
     def fill(self, row, col):
-        try:
-            self.rows[row][col] = Percolation.full
-        except:
-            pass
-        #     print("(%d, %d) is out of bounds" % (row, col))
+        self.rows[row][col] = Percolation.full
 
     def isFull(self, row, col):
-        try:
-            return self.rows[row][col] == Percolation.full
-        except:
-            pass
-        #     print("(%d, %d) is out of bounds" % (row, col))
+        return self.rows[row][col] == Percolation.full
 
     def percolates(self):
         '''
@@ -88,6 +76,9 @@ class Percolation:
         self.dfs(row, col + 1)
         
     def update(self, row, col):
+        '''
+        Checks if dfs should be called.
+        '''
         if row == 0:
             self.dfs(row, col)
         elif row != 0 and self.rows[row - 1][col] == Percolation.full:
@@ -150,4 +141,4 @@ for i in range(100):
 
 print(np.mean(trials))
 
-demo(8)
+demo(10)
