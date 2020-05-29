@@ -79,14 +79,23 @@ class Percolation:
         '''
         Checks if dfs should be called.
         '''
+        # If on top row
         if row == 0:
             self.dfs(row, col)
+
+        # If cell above is full
         elif row != 0 and self.rows[row - 1][col] == Percolation.full:
             self.dfs(row, col)
+        
+        # If cell below is full
         elif row != self.N - 1 and self.rows[row + 1][col] == Percolation.full:
             self.dfs(row, col)
+
+        # If cell to the left is full
         elif col != 0 and self.rows[row][col - 1] == Percolation.full:
             self.dfs(row, col)
+        
+        # If cell to the right is full
         elif col != self.N - 1 and self.rows[row][col + 1] == Percolation.full:
             self.dfs(row, col)
     
