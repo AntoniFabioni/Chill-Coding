@@ -6,7 +6,10 @@ would be trapped after it rains.
 
 def RainMeter(heights):
     
+    # Total amount of water.
     total = 0
+
+    # Width of the landscape, AKA the length of the array.
     bredth = len(heights)
     
     if bredth == 0:
