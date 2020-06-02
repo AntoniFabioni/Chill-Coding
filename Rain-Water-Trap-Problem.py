@@ -15,19 +15,25 @@ def RainMeter(heights):
     if bredth == 0:
         return total
     
+    # Raises everything so that all elements are nonnegative.
+    if min(heights) < 0:
+        heights = [i - min(heights) for i in heights]
+
     highLeft = [0]*(bredth + 1)
 
+    # Shows highest rectangle seen so far
     for i in range(bredth):
         highLeft[i + 1] = max(highLeft[i], heights[i])
-    
+
     highRight = 0
 
-    for i in reversed(range(bredth - 1)):
+    for i in range(bredth - 1, -1, -1):
         highRight = max(heights[i], highRight)
         total += min(highLeft[i], highRight) - heights[i] if min(highLeft[i], highRight) > heights[i] else 0
     
     return total
 
-test = [0,-1,0,2,1,-1,-3,4,4,1,0,-2]
+test = [0,-1,0,2,1,-1,-3,4]
+
 
 print(RainMeter(test))
