@@ -27,6 +27,10 @@ def RainMeter(heights):
 
     highRight = 0
 
+    '''
+    Adds the difference between the left boundary and the current elevation
+    so song as there is a right boundary at least as high as this difference.
+    '''
     for i in range(bredth - 1, -1, -1):
         highRight = max(heights[i], highRight)
         total += min(highLeft[i], highRight) - heights[i] if min(highLeft[i], highRight) > heights[i] else 0
