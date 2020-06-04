@@ -1,7 +1,7 @@
 '''
-Given some array of integers, each respresenting an elevation map of
+Given some array of integers, respresenting heights of 
 rectangular hills of width one, how much many square units of water
-would be trapped after it rains.
+would be trapped in the range after it rains.
 '''
 
 def RainMeter(heights):
