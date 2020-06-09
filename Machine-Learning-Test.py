@@ -1,6 +1,8 @@
 '''
-Creating a neural network from scratch that predicts the
-output of a boolean function given sample inputs.
+Creating a very basic perceptron neural network from scratch that
+predicts the output of a boolean function given sample inputs.
+
+This exercise is focused on education over nuanced application.
 '''
 
 import numpy as np
@@ -15,15 +17,13 @@ training_input = np.array([[0,0,1],[1,1,1],[1,0,1],[0,1,1]])
 
 training_output = np.array([[0,1,1,0]]).T
 
-np.random.seed(1)
-
 weights = 2 * np.random.random((3,1)) - 1
 
 print("Random starting weights are:")
 print(weights)
 print("\n")
 
-for i in range(20000):
+for i in range(100000):
     input_layer = training_input
     output_layer = sigmoid(np.dot(input_layer, weights))
     error = training_output - output_layer
