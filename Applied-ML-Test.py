@@ -1,8 +1,7 @@
 '''
-This program has the goal of creating a perceptron
-that accepts non-training inputs.
+This program has the goal of creating a perceptron that
+evaluates non-training inputs trained on the boolean function:
 
-This example is trained on the boolean function:
 f([x1, x2, x3, x4, x5]) = ((x1 AND (x2 OR (NOT x3))) XOR ((NOT x1) AND (NOT x4))) OR x5
 '''
 
