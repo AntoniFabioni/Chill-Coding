@@ -1,14 +1,20 @@
 '''
 This program has the goal of creating a perceptron
 that accepts non-training inputs.
+
+This example is trained on the boolean function:
+f([x1, x2, x3, x4, x5]) = ((x1 AND (x2 OR (NOT x3))) XOR ((NOT x1) AND (NOT x4))) OR x5
 '''
 
 import numpy as np
 
+training_input = [[0,0,1,0,0],[1,1,1,0,1],[1,0,1,1,1],[0,1,1,1,0],[0,1,1,0,0],[0,1,0,1,0],[1,1,1,1,1]]
+training_output = [1,1,1,0,1,0,1]
+
 class NeutralNet():
 
     def __init__(self):
-        self.weights = 2 * np.random.random((3, 1)) - 1
+        self.weights = 2 * np.random.random((len(training_input[0]), 1)) - 1
     
     def sigmoid(self, x):
         return 1 / (1 + np.exp(-x))
@@ -36,19 +42,21 @@ if __name__ == "__main__":
     print(neural_net.weights)
     print("\n")
 
-    training_input = np.array([[0,0,1],[1,1,1],[1,0,1],[0,1,1]])
+    training_input = np.array(training_input)
 
-    training_output = np.array([[0,1,1,0]]).T
+    training_output = np.array([training_output]).T
 
-    neural_net.train(training_input, training_output, 10000)
+    neural_net.train(training_input, training_output, 100000)
 
     print("Weights after training are:")
     print(neural_net.weights)
     print("\n")
 
-    X = str(input("Input 1: "))
-    Y = str(input("Input 2: "))
-    Z = str(input("Input 3: "))
+    V = str(input("Input 1: "))
+    W = str(input("Input 2: "))
+    X = str(input("Input 3: "))
+    Y = str(input("Input 4: "))
+    Z = str(input("Input 5: "))
 
-    print("New data = ", X, Y, Z)
-    print("New output = ", neural_net.think(np.array([X, Y, Z])))
+    print("New data = ", V, W, X, Y, Z)
+    print("New output = ", neural_net.think(np.array([V, W, X, Y, Z])))
