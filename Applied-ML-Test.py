@@ -65,5 +65,6 @@ if __name__ == "__main__":
     Z = str(input("Input 5: "))
 
     #   Compute test output
+    print("\n")
     print("New data = ", V, W, X, Y, Z)
     print("New output = ", neural_net.think(np.array([V, W, X, Y, Z])))
