@@ -2,13 +2,13 @@
 This program has the goal of creating a perceptron that
 evaluates non-training inputs trained on the boolean function:
 
-f([x1, x2, x3, x4, x5]) = ((x1 AND (x2 OR (NOT x3))) XOR ((NOT x1) AND (NOT x4))) OR x5
+f([x1, x2, x3, x4, x5]) = (x1 AND x3 AND NOT(x2 OR x4)) OR (x2 AND x4 AND NOT(x1 OR x3 OR x5))
 '''
 
 import numpy as np
 
-training_input = [[0,0,1,0,0],[1,1,1,0,1],[1,0,1,1,1],[0,1,1,1,0],[0,1,1,0,0],[0,1,0,1,0],[1,1,1,1,1]]
-training_output = [1,1,1,0,1,0,1]
+training_input = [[1,0,1,0,0],[0,1,0,1,0],[1,0,1,0,1],[0,0,0,0,0],[1,1,1,1,1],[0,0,1,0,0],[0,1,1,1,0],[1,1,0,1,1]]
+training_output = [1,1,1,0,0,0,0,0]
 
 class NeutralNet():
 
