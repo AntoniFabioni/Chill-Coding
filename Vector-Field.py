@@ -16,7 +16,7 @@ density = 20
 x, y = np.meshgrid(np.linspace(-rangex, rangex, density), np.linspace(-rangey, rangey, density))
 
 dx = 1
-dy = -x/y
+dy = 2*y/(3*(x-1))
 
 unit_dx = dx/np.sqrt(dx**2 + dy**2)
 unit_dy = dy/np.sqrt(dx**2 + dy**2)
