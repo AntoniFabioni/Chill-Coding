@@ -11,12 +11,12 @@ import matplotlib.pyplot as plt
 rangex = 20
 rangey = 20
 
-density = 20
+density = 40
 
 x, y = np.meshgrid(np.linspace(-rangex, rangex, density), np.linspace(-rangey, rangey, density))
 
 dx = 1
-dy = 2*y/(3*(x-1))
+dy = 3*np.sin(x)-2*np.cos(y)
 
 unit_dx = dx/np.sqrt(dx**2 + dy**2)
 unit_dy = dy/np.sqrt(dx**2 + dy**2)
