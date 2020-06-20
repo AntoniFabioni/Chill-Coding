@@ -8,8 +8,7 @@ Note that unit vectors will be displayed.
 import numpy as np
 import matplotlib.pyplot as plt
 
-rangex = 20
-rangey = 20
+rangex, rangey = 20, 20
 
 density = 40
 
