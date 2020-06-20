@@ -1,6 +1,6 @@
 '''
 Given some array of integers, respresenting heights of 
-rectangular hills of width one, how much many square units of water
+rectangular hills of width one, how many square units of water
 would be trapped in the range after it rains.
 '''
 
