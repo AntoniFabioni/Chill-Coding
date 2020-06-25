@@ -15,10 +15,10 @@ import scipy.integrate as integrate
 import matplotlib.animation as animation
 
 G = 9.8     # acceleration due to gravity, in m/s^2
-L1 = 1.0    # length of pendulum 1 in m
-L2 = 1.0    # length of pendulum 2 in m
+L1 = 1.4    # length of pendulum 1 in meters
+L2 = 0.9    # length of pendulum 2 in meters
 M1 = 1.0    # mass of pendulum 1 in kg
-M2 = 1.0    # mass of pendulum 2 in kg
+M2 = 1.1    # mass of pendulum 2 in kg
 
 
 def derivs(state, t):
@@ -46,7 +46,7 @@ def derivs(state, t):
     return dydx
 
 # create a time array from 0..100 sampled at 0.05 second steps
-dt = 0.01
+dt = 0.02
 t = np.arange(0, 20, dt)
 
 # th1 and th2 are the initial angles (degrees)
@@ -69,7 +69,7 @@ x2 = L2*sin(y[:, 2]) + x1
 y2 = -L2*cos(y[:, 2]) + y1
 
 fig = plt.figure()
-ax = fig.add_subplot(111, autoscale_on=False, xlim=(-2, 2), ylim=(-2, 2))
+ax = fig.add_subplot(111, autoscale_on=False, xlim=(-(L1+L2), L1+L2), ylim=(-(L1+L2), L1+L2))
 ax.set_aspect('equal')
 ax.grid()
 
