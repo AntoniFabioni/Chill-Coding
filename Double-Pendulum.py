@@ -3,7 +3,7 @@ This program simulates the motion of a double
 pendulum system in 2 dimensions.
 
 This code was sourced from Matplotlib.org,
-and modified for my ease of use.
+and modified for ease of use.
 '''
 
 
@@ -14,18 +14,18 @@ import scipy.integrate as integrate
 import matplotlib.animation as animation
 
 G = 9.8     # acceleration due to gravity, in m/s^2
-L1 = 1.4    # length of pendulum 1 in meters
-L2 = 0.9    # length of pendulum 2 in meters
-M1 = 1.0    # mass of pendulum 1 in kg
-M2 = 1.1    # mass of pendulum 2 in kg
+L1 = 2.0    # length of pendulum 1 in meters
+L2 = 1.0    # length of pendulum 2 in meters
+M1 = 2.0    # mass of pendulum 1 in kg
+M2 = 3.0    # mass of pendulum 2 in kg
 
 th1 = 120.0 # initial angle of pendulum 1 (degrees)
 th2 = -10.0 # initial angle of pendulum 2 (degrees)
-w1 = 0.0    # initial angular velocity of pendulum 1 (degrees per second)
-w2 = 0.0    # initial angular velocity of pendulum 2 (degrees per second)
+w1 = -150.0    # initial angular velocity of pendulum 1 (degrees per second)
+w2 = 20.0    # initial angular velocity of pendulum 2 (degrees per second)
 
 # create a time array sampled at "dt" second long steps
-dt = 0.05
+dt = 0.02
 t = np.arange(0, 20, dt)
 
 # initial state
@@ -91,5 +91,5 @@ def animate(i):
 
 ani = animation.FuncAnimation(fig, animate, range(1, len(y)),
                               interval=dt*1000, blit=True, init_func=init)
-plt.show()
 print(y)
+plt.show()
