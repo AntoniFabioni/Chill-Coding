@@ -1,2 +1,5 @@
-# This program helps visualize data.
+'''
+This program helps visualize data with multiple characteristics.
+'''
+
 import pandas
