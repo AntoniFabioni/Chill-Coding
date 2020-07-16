@@ -14,5 +14,6 @@ animals = {
 
 }
 
-venn(animals)
+venn(animals, fmt="{percentage:.1f}%", fontsize=10, legend_loc="upper right")
+
 plt.show()
