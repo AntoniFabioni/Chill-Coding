@@ -1,5 +1,6 @@
 '''
 This program helps visualize data with multiple characteristics.
+An example would be multiple choice survey answers.
 The data will be displayed in the form a Venn Diagram
 '''
 
