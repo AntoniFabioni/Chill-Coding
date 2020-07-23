@@ -5,10 +5,24 @@ a time-varying signal into its respective frequencies.
 
 import numpy as np
 import numpy.fft as FFT
+import matplotlib.pyplot as plt
 
-# Test
+# Signal
+def f(t):
+    return np.sin(50 * 2 * np.pi * t) + 0.5 * np.sin(75 * 2 * np.pi * t) - 0.75 * np.sin(150 * 2 * np.pi * t)
 
-input = [np.sin(np.radians(t)) for t in range(361)]
+# Number of samples
+N = 600
 
-output = FFT.fft(input)
-print(output)
+# Sample spacing
+T = 1.0 / 800.0
+
+x = np.linspace(0.0, N*T, N)
+y = f(x)
+
+xf = np.linspace(0.0, 1.0//(2.0*T), N//2)
+yf = FFT.fft(y)
+
+plt.plot(xf, 2.0/N * np.abs(yf[0:N//2]))
+plt.grid()
+plt.show()
