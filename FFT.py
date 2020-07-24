@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 # Signal
 def f(t):
-    return np.sin(50 * 2 * np.pi * t) + 0.5 * np.sin(75 * 2 * np.pi * t) - 0.75 * np.sin(150 * 2 * np.pi * t)
+    return (np.sin(50 * 2 * np.pi * t) + 0.5 * np.sin(75 * 2 * np.pi * t) - 0.75 * np.sin(150 * 2 * np.pi * t)) * 20 * np.exp(-(t ** 2))
 
 # Number of samples
 N = 600
