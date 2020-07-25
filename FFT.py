@@ -29,8 +29,8 @@ yf = FFT.fft(y)
 # Positive real output
 Y = 2.0/N * np.abs(yf[0:N//2])
 
-# Plot of transformed f(t) with local max points highlighted
+# Plot of transformed f(t) with local maxima highlighted
 plt.plot(xf, Y)
-plt.plot(xf[argrelextrema(Y, np.greater)], Y[argrelextrema(Y, np.greater)], 'ro')
+plt.plot(xf[argrelextrema(Y, np.greater)], Y[argrelextrema(Y, np.greater)], 'bo')
 plt.grid()
 plt.show()
