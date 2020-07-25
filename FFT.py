@@ -18,6 +18,7 @@ N = 600
 # Sample spacing
 T = 1.0 / 800.0
 
+# Input / Output lists
 x = np.linspace(0.0, N*T, N)
 y = f(x)
 
@@ -25,9 +26,11 @@ y = f(x)
 xf = np.linspace(0.0, 1.0//(2.0*T), N//2)
 yf = FFT.fft(y)
 
-# Local max points
-print(argrelextrema(yf, np.greater))
+# Positive real output
+Y = 2.0/N * np.abs(yf[0:N//2])
 
-plt.plot(xf, 2.0/N * np.abs(yf[0:N//2]))
+# Plot of transformed f(t) with local max points highlighted
+plt.plot(xf, Y)
+plt.plot(xf[argrelextrema(Y, np.greater)], Y[argrelextrema(Y, np.greater)], 'ro')
 plt.grid()
 plt.show()
