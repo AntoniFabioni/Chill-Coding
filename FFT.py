@@ -31,6 +31,7 @@ Y = 2.0/N * np.abs(yf[0:N//2])
 
 # Plot of transformed f(t) with local maxima highlighted
 plt.plot(xf, Y)
-plt.plot(xf[argrelextrema(Y, np.greater)], Y[argrelextrema(Y, np.greater)], 'bo')
+plt.plot(xf[argrelextrema(Y, np.greater)], Y[argrelextrema(Y, np.greater)], 'mo')
+
 plt.grid()
 plt.show()
