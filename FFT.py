@@ -10,7 +10,10 @@ import matplotlib.pyplot as plt
 
 # Signal
 def f(t):
-    return (np.sin(50 * 2 * np.pi * t) + 0.5 * np.sin(75 * 2 * np.pi * t) - 0.75 * np.sin(150 * 2 * np.pi * t)) * 20 * np.exp(-(t ** 2))
+    g1 = np.sin(50 * 2 * np.pi * t) + 0.5 * np.sin(75 * 2 * np.pi * t) - 0.75 * np.sin(150 * 2 * np.pi * t)
+    g2 = 20 * np.exp(-t ** 2)
+    g3 = np.cos(np.pi / 3 * t)
+    return g1 * (g2 + g3)
 
 # Number of samples
 N = 600
@@ -29,9 +32,11 @@ yf = FFT.fft(y)
 # Positive real output
 Y = 2.0/N * np.abs(yf[0:N//2])
 
-# Plot of transformed f(t) with local maxima highlighted
-plt.plot(xf, Y)
-plt.plot(xf[argrelextrema(Y, np.greater)], Y[argrelextrema(Y, np.greater)], 'mo')
-
+# Plot of f(t) and FFT{f(t)} with local maxima highlighted in the latter.
+fig, axs = plt.subplots(2)
+fig.suptitle('f(t) - Top, FFT{f(t)} - Bottom')
+axs[0].plot(x, y, color='cornflowerblue')
+axs[1].plot(xf, Y, color='cornflowerblue')
+plt.plot(xf[argrelextrema(Y, np.greater)], Y[argrelextrema(Y, np.greater)], 'k.')
 plt.grid()
 plt.show()
