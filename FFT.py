@@ -11,15 +11,15 @@ import matplotlib.pyplot as plt
 # Signal
 def f(t):
     g1 = np.sin(50 * 2 * np.pi * t) + 0.5 * np.sin(75 * 2 * np.pi * t) - 0.75 * np.sin(150 * 2 * np.pi * t)
-    g2 = 20 * np.exp(-t ** 2)
-    g3 = np.cos(np.pi / 3 * t)
-    return g1 * (g2 + g3)
+    g2 = 10 * np.exp(-t ** 2)
+    g3 = np.cos(np.pi / 3 * t) - np.log10(2 * t + 10)
+    return 2 * g1 * (g2 + g3)
 
 # Number of samples
-N = 600
+N = 2000
 
 # Sample spacing
-T = 1.0 / 800.0
+T = 1.0 / 1000.0
 
 # Input / Output lists
 x = np.linspace(0.0, N*T, N)
