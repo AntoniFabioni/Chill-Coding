@@ -34,9 +34,14 @@ Y = 2.0/N * np.abs(yf[0:N//2])
 
 # Plot of f(t) and FFT{f(t)} with local maxima highlighted in the latter.
 fig, axs = plt.subplots(2)
-fig.suptitle('f(t) - Top, FFT{f(t)} - Bottom')
+fig.tight_layout(pad=2.0)
+
 axs[0].plot(x, y, color='cornflowerblue')
+axs[0].set_title('f(t)')
+
 axs[1].plot(xf, Y, color='cornflowerblue')
+axs[1].set_title('FFT{f(t)}')
 plt.plot(xf[argrelextrema(Y, np.greater)], Y[argrelextrema(Y, np.greater)], 'k.')
+
 plt.grid()
 plt.show()
