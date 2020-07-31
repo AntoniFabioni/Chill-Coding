@@ -1,6 +1,9 @@
 '''
 This program uses the Fast Fourier Tramsform to decompose
 a time-varying signal into its respective frequencies.
+
+The output is a side-by-side comparison of the original
+graph and its transform.
 '''
 
 import numpy as np
