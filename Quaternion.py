@@ -1,3 +1,5 @@
+# This program demonstrates various applications of quaternions
+
 import numpy
 from pyquaternion import Quaternion
 
