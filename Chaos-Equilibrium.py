@@ -1,6 +1,18 @@
 # This program is under construction.
 
-r = 0
-
 def f(x):
-    return r * x * (1 - x)
+    
+    return x * (1 - x)
+
+def iterate(start, n):
+
+    ans = start
+
+    for i in range(n):
+
+        ans = f(ans)
+
+    return ans
+
+
+print(iterate(0.5, 5))
