@@ -16,7 +16,7 @@ def iterate(start, n, r):
 
     return ans
 
-x = [i / 10000 for i in range(40000)]
+x = [i / 100000 for i in range(400000)]
 
 y = [iterate(0.5, 10, i) for i in x]
 
