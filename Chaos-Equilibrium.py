@@ -1,5 +1,7 @@
 # This program is under construction.
 
+import matplotlib.pyplot as plt
+
 def f(x):
     
     return x * (1 - x)
@@ -14,14 +16,9 @@ def iterate(start, n, r):
 
     return ans
 
+x = [i / 10000 for i in range(40000)]
 
-print(iterate(0.5, 10, 0))
-print(iterate(0.5, 10, 0.5))
-print(iterate(0.5, 10, 1))
-print(iterate(0.5, 10, 1.5))
-print(iterate(0.5, 10, 2))
-print(iterate(0.5, 10, 2.5))
-print(iterate(0.5, 10, 3))
-print(iterate(0.5, 10, 3.1))
-print(iterate(0.5, 10, 3.2))
-print(iterate(0.5, 10, 3.3))
+y = [iterate(0.5, 10, i) for i in x]
+
+plt.plot(x, y)
+plt.show()
