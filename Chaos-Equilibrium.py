@@ -27,7 +27,7 @@ import matplotlib.pyplot as plt
 # plt.ylabel('$Limit_{n → ∞}$', fontsize=15) 
 # plt.show()
 
-rs = np.linspace(0, 4, 1000)
+rs = np.linspace(1, 4, 1000)
 
 N = 500
 x = 0.5 + np.zeros(N)
@@ -40,9 +40,9 @@ for ri in range(len(rs)):
     
     u = np.unique(x[endcap])
     r = rs[ri] * np.ones(len(u))
-    plt.plot(r, u, '.',color='slategrey')
+    plt.plot(r, u, '.', markersize='1')
 
 plt.title('Equilibrium of\n$x_{n + 1} = rx_{n}(1 - x_{n})$', fontsize=20)
-plt.xlabel('r', fontsize=15)
-plt.ylabel('$Limit_{n → ∞}$', fontsize=15) 
+plt.xlabel('Value of "r"', fontsize=15)
+plt.ylabel('$Limit_{n → ∞}$ {$x_{n}$}', fontsize=15) 
 plt.show()
