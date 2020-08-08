@@ -3,26 +3,46 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def f(x, r):
+# def f(x, r):
     
-    return r * x * (1 - x)
+#     return r * x * (1 - x)
 
-def iterate(start, n, r):
+# def iterate(start, n, r):
 
-    ans = start
+#     ans = start
 
-    for i in range(n):
+#     for i in range(n):
 
-        ans = f(ans, r)
+#         ans = f(ans, r)
 
-    return ans
+#     return ans
 
-r = np.linspace(0, 4, 15000)
+# r = np.linspace(0, 4, 15000)
 
-limit = [iterate(0.5, 100, i) for i in r]
+# limit = [iterate(0.5, 500, i) for i in r]
 
-plt.plot(r, limit, '-', color='slategrey')
-plt.title('$x_{n + 1} = rx_{n}(1 - x_{n})$', fontsize=20)
+# plt.plot(r, limit, '-', color='slategrey')
+# plt.title('$x_{n + 1} = rx_{n}(1 - x_{n})$', fontsize=20)
+# plt.xlabel('r', fontsize=15)
+# plt.ylabel('$Limit_{n → ∞}$', fontsize=15) 
+# plt.show()
+
+rs = np.linspace(0, 4, 1000)
+
+N = 500
+x = 0.5 + np.zeros(N)
+endcap = np.arange(round(N * 0.9), N)
+
+for ri in range(len(rs)):
+
+    for n in range(N - 1):
+        x[n + 1] = rs[ri] * x[n] * (1 - x[n])
+    
+    u = np.unique(x[endcap])
+    r = rs[ri] * np.ones(len(u))
+    plt.plot(r, u, '.',color='slategrey')
+
+plt.title('Equilibrium of\n$x_{n + 1} = rx_{n}(1 - x_{n})$', fontsize=20)
 plt.xlabel('r', fontsize=15)
 plt.ylabel('$Limit_{n → ∞}$', fontsize=15) 
 plt.show()
