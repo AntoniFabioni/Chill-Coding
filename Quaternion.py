@@ -3,7 +3,7 @@
 import numpy
 from pyquaternion import Quaternion
 
-my_quaternion = Quaternion(axis=[1, 0, 0], angle=3.14159265)
+my_quaternion = Quaternion(axis=[1, 0, 0], angle=3/2*numpy.pi)
 my_inverse = my_quaternion.inverse
 
 numpy.set_printoptions(suppress=True) # Suppress insignificant values for clarity
