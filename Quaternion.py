@@ -1,4 +1,4 @@
-# This program demonstrates various applications of quaternions.
+# This program demonstrates various properties and applications of quaternions.
 
 import numpy
 from pyquaternion import Quaternion
