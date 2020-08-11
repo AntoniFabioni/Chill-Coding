@@ -13,3 +13,4 @@ v_undo = my_inverse.rotate(v_prime)
 
 print(v_prime)
 print(v_undo)
+print(v_prime - v_undo)
