@@ -3,7 +3,7 @@
 import numpy
 from pyquaternion import Quaternion
 
-my_quaternion = Quaternion(1, 2, 3, 4)
+my_quaternion = Quaternion(1, -2, 3, -4)
 my_inverse = my_quaternion.inverse
 
 numpy.set_printoptions(suppress=True) # Suppress insignificant values for clarity
