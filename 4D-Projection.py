@@ -43,24 +43,13 @@ angle = 0
 cube_position = [width//2, height//2]
 scale = 2500
 speed = 0.01
-points = [n for n in range(16)]
 
-points[0] = [[-1], [-1], [1], [1]]
-points[1] = [[1], [-1], [1], [1]]
-points[2] = [[1], [1], [1], [1]]
-points[3] = [[-1], [1], [1], [1]]
-points[4] = [[-1], [-1], [-1], [1]]
-points[5] = [[1], [-1], [-1], [1]]
-points[6] = [[1], [1], [-1], [1]]
-points[7] = [[-1], [1], [-1], [1]]
-points[8] = [[-1], [-1], [1], [-1]]
-points[9] = [[1], [-1], [1], [-1]]
-points[10] = [[1], [1], [1], [-1]]
-points[11] = [[-1], [1], [1], [-1]]
-points[12] = [[-1], [-1], [-1], [-1]]
-points[13] = [[1], [-1], [-1], [-1]]
-points[14] = [[1], [1], [-1], [-1]]
-points[15] = [[-1], [1], [-1], [-1]]
+points = []
+for w in (-1,1):
+  for x in (-1,1):
+    for y in (-1,1):
+      for z in (-1,1):
+        points.append([[w],[x],[y],[z]])
 
 
 def connect_point(i, j, k, offset):
