@@ -42,14 +42,15 @@ fps = 60
 angle = 0
 cube_position = [width//2, height//2]
 scale = 2500
-speed = 0.01
+speed = 0.005
 
+# Listing all points in the 4D Hypercube (this was a fun challenge)
 points = []
 for w in (-1,1):
-  for x in (-1,1):
+  for z in (-1,1):
     for y in (-1,1):
-      for z in (-1,1):
-        points.append([[w],[x],[y],[z]])
+      for x in (1,-1):
+        points.append([[x * y], [y], [z], [w]])
 
 
 def connect_point(i, j, k, offset):
@@ -114,7 +115,7 @@ while run:
     for point in points:
 
         rotated_3d = matrix_multiplication(rotation4d_xw, point)
-        rotated_3d = matrix_multiplication(rotation4d_yz, rotated_3d)
+        rotated_3d = matrix_multiplication(rotation4d_yw, rotated_3d)
 
         distance = 5
         w = 1/(distance - rotated_3d[3][0])
