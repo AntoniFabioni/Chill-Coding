@@ -37,12 +37,12 @@ pygame.init()
 pygame.display.set_caption("4D cube Projection")
 screen = pygame.display.set_mode((width, height))
 clock = pygame.time.Clock()
-fps = 60
+fps = 1.5 * 60
 
 angle = 0
 cube_position = [width//2, height//2]
-scale = 2500
-speed = 0.005
+scale = 2 * 2500
+speed = 0.5 * 0.01
 
 # Listing all points in the 4D Hypercube (this was a fun challenge)
 points = []
