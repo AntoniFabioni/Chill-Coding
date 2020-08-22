@@ -114,7 +114,7 @@ while run:
 
     for point in points:
 
-        rotated_3d = matrix_multiplication(rotation4d_xw, point)
+        rotated_3d = matrix_multiplication(rotation4d_zw, point)
         rotated_3d = matrix_multiplication(rotation4d_yw, rotated_3d)
 
         distance = 5
