@@ -1,5 +1,5 @@
 '''
-This program has the goal of displaying a 2D projection of a 4D hypercube rotating.
+This program displays the 2D projection of a rotating 4D hypercube.
 '''
 
 import pygame
@@ -30,7 +30,7 @@ def matrix_multiplication(a, b):
         return None
 
 os.environ["SDL_VIDEO_CENTERED"]='1'
-black, white, blue  = (20, 20, 20), (230, 230, 230), (0, 154, 255)
+black, white  = (20, 20, 20), (230, 230, 230)
 width, height = 1920, 1080
 
 pygame.init()
@@ -41,7 +41,7 @@ fps = 1.5 * 60
 
 angle = 0
 cube_position = [width//2, height//2]
-scale = 2 * 2500
+scale = 2500
 speed = 0.5 * 0.01
 
 # Listing all points in the 4D Hypercube (this was a fun challenge)
