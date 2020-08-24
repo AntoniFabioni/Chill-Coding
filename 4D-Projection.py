@@ -156,4 +156,10 @@ while run:
     angle += speed
     pygame.display.update()
 
+    events = pygame.event.get()
+    for event in events:
+        if event.type == pygame.KEYDOWN:
+            if event.key == K_ESCAPE:
+                run = False
+
 pygame.quit()
