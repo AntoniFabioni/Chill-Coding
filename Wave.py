@@ -2,9 +2,9 @@
 This program displays an animation.
 '''
 
-# import pygame
-# import os
-# import math
+import pygame
+import os
+import math
 
 # def matrix_multiplication(a, b):
 
