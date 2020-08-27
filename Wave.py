@@ -6,38 +6,15 @@ import pygame
 import os
 import math
 
-# def matrix_multiplication(a, b):
+os.environ["SDL_VIDEO_CENTERED"]='1'
+black, white  = (20, 20, 20), (230, 230, 230)
+width, height = 1920, 1080
 
-#     col_a, row_a = len(a[0]), len(a)
-#     col_b, row_b = len(b[0]), len(b)
-
-#     result = [[j for j in range(col_b)] for i in range(row_a)]
-
-#     if col_a == row_b:
-#         for x in range(row_a):
-#             for y in range(col_b):
-                
-#                 sum = 0
-
-#                 for k in range(col_a):
-#                     sum += a[x][k] * b[k][y]
-#                 result[x][y] = sum
-
-#         return result
-    
-#     else:
-#         print("Error: Matrices are the incorrect sizes!")
-#         return None
-
-# os.environ["SDL_VIDEO_CENTERED"]='1'
-# black, white  = (20, 20, 20), (230, 230, 230)
-# width, height = 1920, 1080
-
-# pygame.init()
-# pygame.display.set_caption("4D cube Projection")
-# screen = pygame.display.set_mode((width, height))
-# clock = pygame.time.Clock()
-# fps = 1.5 * 60
+pygame.init()
+pygame.display.set_caption("Wave")
+screen = pygame.display.set_mode((width, height))
+clock = pygame.time.Clock()
+fps = 1.5 * 60
 
 # angle = 0
 # cube_position = [width//2, height//2]
