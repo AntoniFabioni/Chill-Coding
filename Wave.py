@@ -21,21 +21,6 @@ fps = 1.5 * 60
 # scale = 2500
 # speed = 0.5 * 0.01
 
-# # Listing all points in the 4D Hypercube (this was a fun challenge)
-# points = []
-# for w in (-1,1):
-#   for z in (-1,1):
-#     for y in (-1,1):
-#       for x in (1,-1):
-#         points.append([[x * y], [y], [z], [w]])
-
-
-# def connect_point(i, j, k, offset):
-#     a = k[i + offset]
-#     b = k[j + offset]
-#     pygame.draw.line(screen, white, (a[0], a[1]), (b[0], b[1]), 2)
-
-
 # run = True
 # while run:
 #     clock.tick(fps)
