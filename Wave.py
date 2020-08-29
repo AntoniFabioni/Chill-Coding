@@ -1,5 +1,5 @@
 '''
-This program displays an animation.
+This program displays an animation of a wave.
 '''
 
 import pygame
