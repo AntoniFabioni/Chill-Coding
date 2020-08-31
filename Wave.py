@@ -21,13 +21,13 @@ cube_position = [width//2, height//2]
 scale = 2500
 speed = 0.5 * 0.01
 
-# run = True
-# while run:
-#     clock.tick(fps)
-#     screen.fill(black)
-#     for event in pygame.event.get():
-#         if event.type == pygame.QUIT:
-#             run = False
+run = True
+while run:
+    clock.tick(fps)
+    screen.fill(black)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
 
 #     index = 0
 #     projected_points = [j for j in range(len(points))]
