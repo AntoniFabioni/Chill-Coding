@@ -29,13 +29,13 @@ while run:
         if event.type == pygame.QUIT:
             run = False
 
-#     angle += speed
-#     pygame.display.update()
+    #     angle += speed
+    #     pygame.display.update()
 
-#     events = pygame.event.get()
-#     for event in events:
-#         if event.type == pygame.KEYDOWN:
-#             if event.key == K_ESCAPE:
-#                 run = False
+    events = pygame.event.get()
+    for event in events:
+        if event.type == pygame.KEYDOWN:
+            if event.key == K_ESCAPE:
+                run = False
 
-# pygame.quit()
+pygame.quit()
