@@ -16,11 +16,6 @@ screen = pygame.display.set_mode((width, height))
 clock = pygame.time.Clock()
 fps = 1.5 * 60
 
-angle = 0
-cube_position = [width//2, height//2]
-scale = 2500
-speed = 0.5 * 0.01
-
 run = True
 while run:
     clock.tick(fps)
@@ -28,9 +23,6 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
-
-    #     angle += speed
-    #     pygame.display.update()
 
     events = pygame.event.get()
     for event in events:
