@@ -1,33 +1,51 @@
 '''
-This program displays an animation of a travelling wave.
+This program displays an animation of a wave u(x,t).
 '''
 
-import pygame
-import os
-import math
+import numpy as np
+from numpy import pi
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 
-os.environ["SDL_VIDEO_CENTERED"]='1'
-black, white  = (20, 20, 20), (230, 230, 230)
-width, height = 1920, 1080
+plt.style.use('dark_background')
 
-pygame.init()
-pygame.display.set_caption("Wave")
-screen = pygame.display.set_mode((width, height))
-clock = pygame.time.Clock()
-fps = 1.5 * 60
+fig = plt.figure()
+fig.set_dpi(100)
+ax1 = fig.add_subplot(1, 1, 1)
 
-run = True
-while run:
-    clock.tick(fps)
-    screen.fill(black)
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            run = False
+# Wave speed
+c = 1
 
-    events = pygame.event.get()
-    for event in events:
-        if event.type == pygame.KEYDOWN:
-            if event.key == K_ESCAPE:
-                run = False
+# x-axis
+xdomain = (-pi, pi)
+x0 = np.linspace(xdomain[0], xdomain[1], 10000)
 
-pygame.quit()
+# Initial time
+t0 = 0
+
+# Time increment
+dt = 0.05
+
+# Wave to be plotted
+def u(x, t):
+    return (np.cos(x + c*t)**3 + np.cos(x - c*t)**3)
+
+a = []
+for i in range(500):
+    U = u(x0, t0)
+    t0 += dt
+    a.append(U)
+
+k = 0
+def animate(i):
+    global k
+    x = a[k]
+    k += 1
+    ax1.clear()
+    plt.plot(x0, x, color='cornflowerblue')
+    plt.grid(True)
+    plt.ylim((-2, 2))
+    plt.xlim(xdomain)
+
+anim = animation.FuncAnimation(fig, animate, frames=360, interval=20)
+plt.show()
