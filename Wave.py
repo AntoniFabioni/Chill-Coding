@@ -1,5 +1,5 @@
 '''
-This program displays an animation of a wave u(x,t).
+This program displays an animation of an oscillating wave u(x,t).
 '''
 
 import numpy as np
