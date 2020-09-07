@@ -10,7 +10,7 @@ import matplotlib.animation as animation
 plt.style.use('dark_background')
 
 fig = plt.figure()
-fig.set_dpi(100)
+fig.set_dpi(300)
 ax1 = fig.add_subplot(1, 1, 1)
 
 # Wave speed
