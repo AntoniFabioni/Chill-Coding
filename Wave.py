@@ -47,5 +47,5 @@ def animate(i):
     plt.ylim((-2, 2))
     plt.xlim(xdomain)
 
-anim = animation.FuncAnimation(fig, animate, frames=360, interval=20)
+anim = animation.FuncAnimation(fig, animate, interval=17)
 plt.show()
