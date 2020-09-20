@@ -1,3 +1,8 @@
+'''
+This program plots the current along a transmission line with respect to the
+z-coordinate and time. Two plots are produced, each at a different time.
+'''
+
 import numpy as np
 import matplotlib.pyplot as plt
 
