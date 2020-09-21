@@ -1,6 +1,6 @@
 '''
 This program plots the current along a transmission line with respect to the
-z-coordinate and time. Two plots are produced, each at a different time.
+z-coordinate and time. Two plots are produced, one at t=0ns and one at t=0.5ns.
 '''
 
 import numpy as np
