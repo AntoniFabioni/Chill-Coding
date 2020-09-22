@@ -18,7 +18,7 @@ ys0 = i(zs, 0)
 ys1 = i(zs, 0.5*10**(-9))
 
 plt.plot(zs, ys0, color='cornflowerblue', label='i(z, 0)')
-plt.plot(zs, ys1, color='tomato', label='i(z, 0.5ns)')
+plt.plot(zs, ys1, color='salmon', label='i(z, 0.5ns)')
 plt.legend(loc='upper right')
 plt.xlabel('z Position (m)')
 plt.ylabel('Current (A)')
