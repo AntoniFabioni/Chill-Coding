@@ -1,5 +1,5 @@
 '''
-This program plots AC voltage as a function of time.
+This program plots 60Hz AC voltage as a function of time.
 '''
 
 import numpy as np
