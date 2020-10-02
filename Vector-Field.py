@@ -16,9 +16,10 @@ x, y = np.meshgrid(np.linspace(-rangex, rangex, density), np.linspace(-rangey, r
 
 dx = 1
 dy = 3*np.sin(x)-2*np.cos(y)
+m = np.sqrt(dx**2 + dy**2)
 
-unit_dx = dx/np.sqrt(dx**2 + dy**2)
-unit_dy = dy/np.sqrt(dx**2 + dy**2)
+unit_dx = dx/m
+unit_dy = dy/m
 
 plt.quiver(x, y, unit_dx, unit_dy)
 plt.show()
