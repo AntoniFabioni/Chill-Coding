@@ -1,15 +1,17 @@
 from math import *
 
-# def juggler(n):
-#     if n == 1:
-#         return 1
+juggles = 0
 
-#     if n % 2 == 0:
-#         juggler(math.floor(math.sqrt(n)))
-#     else:
-#         juggler(math.floor(math.sqrt(n)**3))
-    
-#     print(juggler(3))
+def juggler(n):
+    if n == 1:
+        return juggles
+
+    if n % 2 == 0:
+        juggles += 1
+        juggler(math.floor(math.sqrt(n)))
+    else:
+        juggles += 1
+        juggler(math.floor(math.sqrt(n)**3))
 
 def printJuggler(n):
 
@@ -32,3 +34,4 @@ def printJuggler(n):
         a = b
 
 printJuggler(3)
+print(juggler(3))
