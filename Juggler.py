@@ -1,17 +1,16 @@
-from math import *
+import numpy as np
 
 juggles = 0
 
 def juggler(n):
     if n == 1:
         return juggles
-
     if n % 2 == 0:
         juggles += 1
-        juggler(math.floor(math.sqrt(n)))
+        juggler(np.floor(np.sqrt(n)))
     else:
         juggles += 1
-        juggler(math.floor(math.sqrt(n)**3))
+        juggler(np.floor(np.sqrt(n)**3))
 
 def printJuggler(n):
 
@@ -24,11 +23,11 @@ def printJuggler(n):
   
         if a % 2 == 0: 
 
-            b  = floor(sqrt(a))
+            b  = np.floor(np.sqrt(a))
   
         else:
   
-            b = floor(sqrt(a)*sqrt(a)*sqrt(a))
+            b = np.floor(np.sqrt(a)**3)
 
         print(b)
         a = b
