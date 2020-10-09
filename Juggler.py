@@ -3,6 +3,7 @@ import numpy as np
 juggles = 0
 
 def juggler(n):
+    global juggles
     if n == 1:
         return juggles
     if n % 2 == 0:
