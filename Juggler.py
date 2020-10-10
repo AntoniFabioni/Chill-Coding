@@ -30,8 +30,9 @@ def printJuggler(n):
   
             b = np.floor(np.sqrt(a)**3)
 
-        print(b)
+        print(int(b))
         a = b
 
 printJuggler(3)
+print("\n")
 print(juggler(3))
