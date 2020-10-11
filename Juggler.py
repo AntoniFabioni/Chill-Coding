@@ -1,3 +1,8 @@
+'''
+This program prints the juggler sequence starting at an integer "n"
+and counts how many steps are needed to return 1.
+'''
+
 import numpy as np
 
 juggles = 0
@@ -33,6 +38,8 @@ def printJuggler(n):
         print(int(b))
         a = b
 
-printJuggler(3)
-print("\n")
-print(juggler(3))
+def Juggle(n):
+    printJuggler(n)
+    print("Steps taken: ", juggler(n))
+
+Juggle(5)
