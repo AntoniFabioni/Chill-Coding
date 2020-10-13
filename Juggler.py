@@ -18,12 +18,12 @@ def juggler(n):
     if n % 2 == 0:
     
         juggles += 1
-        juggler(np.floor(np.sqrt(n)))
+        return juggler(np.floor(np.sqrt(n)))
     
     else:
     
         juggles += 1
-        juggler(np.floor(np.sqrt(n)**3))
+        return juggler(np.floor(np.sqrt(n)**3))
 
 def printJuggler(n):
 
@@ -49,4 +49,4 @@ def Juggle(n):
     printJuggler(n)
     print("Steps taken: ", juggler(n))
 
-Juggle(5)
+Juggle(157)
