@@ -1,5 +1,5 @@
 '''
-This program plots H-field along a solenoid's z-axis.
+This program plots H-field along a solenoid's central axis.
 '''
 
 import numpy as np
