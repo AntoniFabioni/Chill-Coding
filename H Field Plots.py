@@ -12,7 +12,9 @@ zs = np.linspace(-20, 20, 81)
 
 vs = H(zs)
 
-plt.plot(zs, vs, '-', color='teal')
+colour = 'teal'
+
+plt.plot(zs, vs, '-', color=colour)
 
 plt.xlabel('Position along Solenoid (cm)')
 plt.ylabel('Magnitude of H-Field (kA/m)')
