@@ -8,7 +8,10 @@ import matplotlib.pyplot as plt
 def H(z):
     return 12*abs(((10-z)/np.sqrt((10-z)**2+25))+((10+z)/np.sqrt((10+z)**2+25)))
 
-zs = np.linspace(-20, 20, 81)
+bounds = (-20, 20)
+res = max(bounds) - min(bounds) + 1
+
+zs = np.linspace(bounds[0], bounds[1], res)
 
 vs = H(zs)
 
