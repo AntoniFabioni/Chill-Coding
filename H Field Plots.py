@@ -13,11 +13,11 @@ res = max(bounds) - min(bounds) + 1
 
 zs = np.linspace(bounds[0], bounds[1], res)
 
-vs = H(zs)
+hs = H(zs)
 
 colour = 'teal'
 
-plt.plot(zs, vs, '-', color=colour)
+plt.plot(zs, hs, '-', color=colour)
 
 plt.xlabel('Position along Solenoid (cm)')
 plt.ylabel('Magnitude of H-Field (kA/m)')
