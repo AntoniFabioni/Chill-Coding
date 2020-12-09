@@ -9,7 +9,7 @@ def H(z):
     return 12*abs(((10-z)/np.sqrt((10-z)**2+25))+((10+z)/np.sqrt((10+z)**2+25)))
 
 bounds = (-20, 20)
-res = max(bounds) - min(bounds) + 1
+res = max(bounds) - min(bounds) + 1 # the "+ 1" includes 0
 
 zs = np.linspace(bounds[0], bounds[1], res)
 
