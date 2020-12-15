@@ -15,7 +15,7 @@ zs = np.linspace(bounds[0], bounds[1], res)
 
 hs = H(zs)
 
-colour = 'teal'
+colour = 'cornflowerblue'
 
 plt.plot(zs, hs, '-', color=colour)
 
