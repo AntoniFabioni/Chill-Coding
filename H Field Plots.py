@@ -17,7 +17,7 @@ hs = H(zs)
 
 colour = 'cornflowerblue'
 
-plt.plot(zs, hs, '-', color=colour)
+plt.plot(zs, hs, '-', color=colour) # Gotta use the Canadian spelling :)
 
 plt.xlabel('Position along Solenoid (cm)')
 plt.ylabel('Magnitude of H-Field (kA/m)')
