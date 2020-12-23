@@ -9,7 +9,7 @@ def H(z):
     return 12*abs(((10-z)/np.sqrt((10-z)**2+25))+((10+z)/np.sqrt((10+z)**2+25)))
 
 bounds = (-20, 20)
-resolution = max(bounds) - min(bounds) + 1 # the "+ 1" includes 0 in the domain.
+resolution = max(bounds) - min(bounds) + 1 # the "+ 1" includes 0 in the function's domain.
 
 zs = np.linspace(bounds[0], bounds[1], resolution)
 
