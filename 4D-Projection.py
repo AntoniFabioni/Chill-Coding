@@ -85,8 +85,8 @@ while run:
     tesseract_rotation = [[1, 0, 0],
                           [0, math.cos(-math.pi/2), -math.sin(-math.pi/2)],
                           [0, math.sin(-math.pi/2), math.cos(-math.pi/2)]]
+   
     #4d matrix rotations
-
     rotation4d_xy= [[math.cos(angle), -math.sin(angle), 0, 0],
                   [math.sin(angle), math.cos(angle), 0, 0],
                   [0, 0, 1, 0],
