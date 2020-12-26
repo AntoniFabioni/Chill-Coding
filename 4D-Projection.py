@@ -139,6 +139,7 @@ while run:
         projected_points[index] = [x, y]
         pygame.draw.circle(screen, white, (x, y), 10)
         index += 1
+        
     #draw edges
     for m in range(4):
         connect_point(m, (m+1)%4, projected_points, 8)
