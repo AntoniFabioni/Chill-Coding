@@ -1,5 +1,6 @@
 '''
 This program displays the 2D projection of a rotating 4D hypercube.
+Plan to make UI better.
 '''
 
 import pygame
