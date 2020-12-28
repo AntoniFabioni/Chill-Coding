@@ -160,6 +160,8 @@ while run:
     events = pygame.event.get()
     for event in events:
         if event.type == pygame.KEYDOWN:
+            
+            # Press "Esc" to exit.
             if event.key == K_ESCAPE:
                 run = False
 
