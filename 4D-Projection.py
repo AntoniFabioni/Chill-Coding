@@ -45,7 +45,7 @@ cube_position = [width//2, height//2]
 scale = 2500
 speed = 0.5 * 0.01
 
-# Listing all points in the 4D Hypercube (this was a fun challenge)
+# Listing all points in the 2x2x2x2 4D Hypercube (this was a fun challenge)
 points = []
 for w in (-1,1):
   for z in (-1,1):
