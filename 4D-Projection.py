@@ -1,11 +1,17 @@
 '''
 This program displays the 2D projection of a rotating 4D hypercube.
-Plan to make UI better.
 '''
 
 import pygame
 import os
 import math
+
+# Temporary solution.
+rotation = '''
+rotated_3d = matrix_multiplication(rotation4d_zw, point)
+rotated_3d = matrix_multiplication(rotation4d_xy, point)
+rotated_3d = matrix_multiplication(rotation4d_yw, rotated_3d)
+'''
 
 def matrix_multiplication(a, b):
 
@@ -115,9 +121,7 @@ while run:
 
     for point in points:
 
-        rotated_3d = matrix_multiplication(rotation4d_zw, point)
-        rotated_3d = matrix_multiplication(rotation4d_xy, point)
-        rotated_3d = matrix_multiplication(rotation4d_yw, rotated_3d)
+        exec(rotation)
 
         distance = 5
         w = 1/(distance - rotated_3d[3][0])
