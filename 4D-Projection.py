@@ -8,8 +8,8 @@ import math
 
 # Temporary solution.
 rotation = '''
-rotated_3d = matrix_multiplication(rotation4d_zw, point)
 rotated_3d = matrix_multiplication(rotation4d_xy, point)
+rotated_3d = matrix_multiplication(rotation4d_zw, point)
 rotated_3d = matrix_multiplication(rotation4d_yw, rotated_3d)
 '''
 
