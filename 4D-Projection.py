@@ -1,5 +1,5 @@
 '''
-This program displays the 2D projection of a rotating 4D hypercube.
+This program displays the 2D projection of a rotating 4D hypercube (tesseract).
 '''
 
 import pygame
