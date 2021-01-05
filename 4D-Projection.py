@@ -6,7 +6,7 @@ import pygame
 import os
 import math
 
-# Change rotation directions.
+# Change rotation directions
 rotation = '''
 rotated_3d = matrix_multiplication(rotation4d_xy, point)
 rotated_3d = matrix_multiplication(rotation4d_zw, point)
