@@ -10,8 +10,8 @@ import math
 # Change rotation directions
 rotation = '''
 rotated_3d = matrix_multiplication(rotation4d_xy, point)
-rotated_3d = matrix_multiplication(rotation4d_zw, point)
-rotated_3d = matrix_multiplication(rotation4d_yw, rotated_3d)
+rotated_3d = matrix_multiplication(rotation4d_yw, point)
+rotated_3d = matrix_multiplication(rotation4d_zw, rotated_3d)
 '''
 
 def matrix_multiplication(a, b):
