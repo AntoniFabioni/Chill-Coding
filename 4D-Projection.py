@@ -34,7 +34,7 @@ def matrix_multiplication(a, b):
         return result
     
     else:
-        print("Error: Matrices are the incorrect sizes!")
+        print("Error: Matrices are the incorrect sizes!") # This shouldn't happen!
         return None
 
 os.environ["SDL_VIDEO_CENTERED"]='1'
