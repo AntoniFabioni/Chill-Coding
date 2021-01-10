@@ -122,6 +122,7 @@ while run:
 
     for point in points:
 
+        # Code from line 10 is placed below.
         exec(rotation)
 
         distance = 5
