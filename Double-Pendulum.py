@@ -70,8 +70,8 @@ ax.set_aspect('equal')
 ax.grid()
 
 line, = ax.plot([], [], 'o-', lw=2)
-time_template = 'time = %.1fs'
-time_text = ax.text(0.05, 0.9, '', transform=ax.transAxes)
+time_template = 'time = %.2fs'
+time_text = ax.text(0.04, 0.9, '', transform=ax.transAxes)
 
 
 def init():
