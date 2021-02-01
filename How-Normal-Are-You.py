@@ -5,3 +5,7 @@ This is done by computing how many people are subscribed to at least
 '''
 
 import numpy as np
+
+user = {}
+others = {}
+
