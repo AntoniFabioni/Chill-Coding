@@ -7,7 +7,7 @@ by N links (e.g., subbed to the same N YouTube channels).
 import numpy as np
 import matplotlib as plot
 
-user = {}
+me = {}
 others = {}
 
 # -------------------------
