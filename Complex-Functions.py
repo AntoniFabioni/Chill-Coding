@@ -1,4 +1,4 @@
-# Complex Funnptions
+# Complex Functions
 
 import matplotlib.pyplot as plt
 
