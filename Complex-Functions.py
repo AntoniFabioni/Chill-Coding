@@ -15,12 +15,16 @@ def RootNot(u):
 v_out = RootNot(v_in)
 
 fig, axs = plt.subplots(2, 2)
+
 axs[0, 0].plot(vx.real, vx.imag, 'bo')
 axs[0, 0].set_title('Input: x-component')
+
 axs[0, 1].plot(vy.real, vy.imag, 'go')
 axs[0, 1].set_title('Input: y-component')
+
 axs[1, 0].plot(v_out[0].real, v_out[0].imag, 'bx')
 axs[1, 0].set_title('Output: x-component')
+
 axs[1, 1].plot(v_out[1].real, v_out[1].imag, 'gx')
 axs[1, 1].set_title('Output: y-component')
 
