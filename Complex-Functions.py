@@ -1,3 +1,49 @@
+'''Vizualize Complex Functions (Root of Not)'''
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+i = complex(0, 1)
+
+# Parametric path for x-coordinate
+def rx(t):
+    return np.cos(t)
+
+# Parametric path for y-coordinate
+def ry(t):
+    return i*np.sin(t)
+
+t_start, t_stop = 0, 1
+
+def RootNot(u):
+    avg = (u[0] + u[1])/2
+    diff = (u[0] - u[1])/2
+    return (complex(avg, diff), complex(avg, -diff))
+
+fig, axs = plt.subplots(2, 2)
+
+for t in np.linspace(t_start, t_stop, 50):
+
+    vx = rx(t)
+    vy = ry(t)
+    
+    axs[0, 0].plot(vx.real, vx.imag, 'bo')
+    axs[0, 1].plot(vy.real, vy.imag, 'go')
+
+    v_out = RootNot((vx, vy))
+
+    axs[1, 0].plot(v_out[0].real, v_out[0].imag, 'bx')
+    axs[1, 1].plot(v_out[1].real, v_out[1].imag, 'gx')
+
+axs[0, 0].set_title('Input: x-component')
+axs[0, 1].set_title('Input: y-component')
+axs[1, 0].set_title('Output: x-component')
+axs[1, 1].set_title('Output: y-component')
+
+plt.show()
+
+
+
 # # Complex Functions
 
 # import matplotlib.pyplot as plt
@@ -29,48 +75,3 @@
 # axs[1, 1].set_title('Output: y-component')
 
 # plt.show()
-
-# Complex Functions
-
-import matplotlib.pyplot as plt
-import numpy as np
-
-j = complex(0, 1)
-
-def rx(t):
-    return np.cos(t)
-
-def ry(t):
-    return np.sin(t)*j
-
-def RootNot(u):
-    avg = (u[0] + u[1])/2
-    diff = (u[0] - u[1])/2
-    return (complex(avg, diff), complex(avg, -diff))
-
-t_start, t_stop = 0, 1
-
-vx = rx(t_start)
-vy = ry(t_start)
-
-fig, axs = plt.subplots(2, 2)
-
-for t in np.linspace(t_start, t_stop, 50):
-
-    vx = rx(t)
-    vy = ry(t)
-    
-    axs[0, 0].plot(vx.real, vx.imag, 'bo')
-    axs[0, 1].plot(vy.real, vy.imag, 'go')
-
-    v_out = RootNot((vx, vy))
-
-    axs[1, 0].plot(v_out[0].real, v_out[0].imag, 'bx')
-    axs[1, 1].plot(v_out[1].real, v_out[1].imag, 'gx')
-
-axs[0, 0].set_title('Input: x-component')
-axs[0, 1].set_title('Input: y-component')
-axs[1, 0].set_title('Output: x-component')
-axs[1, 1].set_title('Output: y-component')
-
-plt.show()
