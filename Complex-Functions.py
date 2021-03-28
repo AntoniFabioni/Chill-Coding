@@ -7,13 +7,13 @@ i = complex(0, 1)
 
 # Parametric path for x-coordinate
 def rx(t):
-    return np.cos(t)
+    return np.cos(t) + i*np.sin(t)
 
 # Parametric path for y-coordinate
 def ry(t):
-    return i*np.sin(t)
+    return t - i
 
-t_start, t_stop = 0, 1
+t_start, t_stop, number_of_points = 0, 1, 50
 
 def RootNot(u):
     avg = (u[0] + u[1])/2
@@ -22,7 +22,7 @@ def RootNot(u):
 
 fig, axs = plt.subplots(2, 2)
 
-for t in np.linspace(t_start, t_stop, 50):
+for t in np.linspace(t_start, t_stop, number_of_points):
 
     vx = rx(t)
     vy = ry(t)
