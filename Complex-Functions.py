@@ -38,10 +38,10 @@ import numpy as np
 j = complex(0, 1)
 
 def rx(t):
-    return t
+    return np.cos(t)
 
 def ry(t):
-    return (2+j)*t
+    return np.sin(t)*j
 
 def RootNot(u):
     avg = (u[0] + u[1])/2
@@ -53,8 +53,6 @@ t_start, t_stop = 0, 1
 vx = rx(t_start)
 vy = ry(t_start)
 
-v_in = (vx, vy)
-
 fig, axs = plt.subplots(2, 2)
 
 for t in np.linspace(t_start, t_stop, 50):
@@ -65,7 +63,7 @@ for t in np.linspace(t_start, t_stop, 50):
     axs[0, 0].plot(vx.real, vx.imag, 'bo')
     axs[0, 1].plot(vy.real, vy.imag, 'go')
 
-    v_out = RootNot(v_in)
+    v_out = RootNot((vx, vy))
 
     axs[1, 0].plot(v_out[0].real, v_out[0].imag, 'bx')
     axs[1, 1].plot(v_out[1].real, v_out[1].imag, 'gx')
