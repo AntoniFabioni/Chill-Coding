@@ -13,7 +13,7 @@ def rx(t):
 def ry(t):
     return t - i
 
-t_start, t_stop, number_of_points = 0, 1, 50
+t_start, t_stop, number_of_points = 0, 1, 100
 
 def RootNot(u):
     avg = (u[0] + u[1])/2
