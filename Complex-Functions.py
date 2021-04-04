@@ -40,6 +40,15 @@ axs[0, 1].set_title('Input: y-component')
 axs[1, 0].set_title('Output: x-component')
 axs[1, 1].set_title('Output: y-component')
 
+axs[0, 0].set_xlabel("Real")
+axs[0, 0].set_ylabel("Imaginary")
+axs[0, 1].set_xlabel("Real")
+axs[0, 1].set_ylabel("Imaginary")
+axs[1, 0].set_xlabel("Real")
+axs[1, 0].set_ylabel("Imaginary")
+axs[1, 1].set_xlabel("Real")
+axs[1, 1].set_ylabel("Imaginary")
+
 plt.show()
 
 
