@@ -2,7 +2,7 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
-
+ 
 i = complex(0, 1)
 
 # Parametric path for x-coordinate
@@ -11,7 +11,7 @@ def rx(t):
 
 # Parametric path for y-coordinate
 def ry(t):
-    return t - i
+    return t**2/10 - i
 
 t_start, t_stop, number_of_points = 0, 1, 100
 
