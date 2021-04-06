@@ -11,7 +11,7 @@ def rx(t):
 
 # Parametric path for y-coordinate
 def ry(t):
-    return t**2/10 - i
+    return t**2/8 - i
 
 t_start, t_stop, number_of_points = 0, 1, 100
 
