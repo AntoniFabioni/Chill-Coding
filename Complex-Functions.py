@@ -2,6 +2,7 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
+from numpy.core.fromnumeric import size
  
 i = complex(0, 1)
 
@@ -13,7 +14,7 @@ def rx(t):
 def ry(t):
     return t**2/8 - i
 
-t_start, t_stop, number_of_points = 0, 1, 100
+t_start, t_stop, number_of_points = 0, 1, 150
 
 def RootNot(u):
     avg = (u[0] + u[1])/2
@@ -44,13 +45,22 @@ vy_out = [RootNot((vx_real[t] + i*vx_imag[t], vy_real[t] + i*vy_imag[t]))[1] for
 #     axs[1, 0].plot(v_out[0].real, v_out[0].imag, 'bx')
 #     axs[1, 1].plot(v_out[1].real, v_out[1].imag, 'gx')
 
-# grad = np.linspace(0,1,number_of_points)
+axs[0, 0].plot(vx_real, vx_imag, linewidth=3)
+axs[0, 1].plot(vy_real, vy_imag, linewidth=3)
 
-axs[0, 0].plot(vx_real, vx_imag, c='b')
-axs[0, 1].plot(vy_real, vy_imag, c='r')
+axs[1, 0].plot(vx_out, vx_out, linewidth=3)
+axs[1, 1].plot(vy_out, vy_out, linewidth=3)
 
-axs[1, 0].plot(vx_out, vx_out, c='b')
-axs[1, 1].plot(vy_out, vy_out, c='r')
+# grad1 = [(0, 0.2, n/number_of_points) for n in range(number_of_points)]
+# grad2 = [(0.2, n/number_of_points, 0) for n in range(number_of_points)]
+
+# for n in range(number_of_points):
+
+#     axs[0, 0].scatter(vx_real[n], vx_imag[n], c=grad1[n])
+#     axs[0, 1].scatter(vy_real[n], vy_imag[n], c=grad2[n])
+
+#     axs[1, 0].scatter(vx_out[n], vx_out[n], c=grad1[n])
+#     axs[1, 1].scatter(vy_out[n], vy_out[n], c=grad2[n])
 
 axs[0, 0].set_title('Input: x-component')
 axs[0, 1].set_title('Input: y-component')
