@@ -14,7 +14,7 @@ def rx(t):
 def ry(t):
     return t**2/8 - i
 
-t_start, t_stop, number_of_points = 0, 1, 150
+t_start, t_stop, number_of_points = 0, 1, 200
 
 def RootNot(u):
     avg = (u[0] + u[1])/2
@@ -45,11 +45,11 @@ vy_out = [RootNot((vx_real[t] + i*vx_imag[t], vy_real[t] + i*vy_imag[t]))[1] for
 #     axs[1, 0].plot(v_out[0].real, v_out[0].imag, 'bx')
 #     axs[1, 1].plot(v_out[1].real, v_out[1].imag, 'gx')
 
-axs[0, 0].plot(vx_real, vx_imag, linewidth=3)
-axs[0, 1].plot(vy_real, vy_imag, linewidth=3)
+axs[0, 0].plot(vx_real, vx_imag, linewidth=2)
+axs[0, 1].plot(vy_real, vy_imag, linewidth=2)
 
-axs[1, 0].plot(vx_out, vx_out, linewidth=3)
-axs[1, 1].plot(vy_out, vy_out, linewidth=3)
+axs[1, 0].plot(vx_out, vx_out, linewidth=2)
+axs[1, 1].plot(vy_out, vy_out, linewidth=2)
 
 # grad1 = [(0, 0.2, n/number_of_points) for n in range(number_of_points)]
 # grad2 = [(0.2, n/number_of_points, 0) for n in range(number_of_points)]
