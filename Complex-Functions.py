@@ -2,6 +2,10 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
+
+# Ignore warnings in console
+from matplotlib.axes._axes import _log as matplotlib_axes_logger
+matplotlib_axes_logger.setLevel('ERROR')
  
 i = complex(0, 1)
 
