@@ -15,9 +15,9 @@ def rx(t):
 
 # Parametric path for y-coordinate
 def ry(t):
-    return t**2/8 - i
+    return (1 + i)*t**2 - t/(2 - 3*i) + (1 - i)
 
-t_start, t_stop, number_of_points = 0, 1, 250
+t_start, t_stop, number_of_points = 0, 1, 500
 
 def RootNot(u):
     avg = (u[0] + u[1])/2
@@ -37,7 +37,7 @@ vy_out = [RootNot((vx_real[t] + i*vx_imag[t], vy_real[t] + i*vy_imag[t]))[1] for
 
 grad1 = [(0, 0.4, n/number_of_points) for n in range(number_of_points)]
 grad2 = [(0.5, 0, n/number_of_points) for n in range(number_of_points)]
-size = 6
+size = 3
 
 for n in range(number_of_points):
 
