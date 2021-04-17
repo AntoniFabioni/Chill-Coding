@@ -1,4 +1,4 @@
-'''Vizualize Complex Functions (Root of Not)'''
+'''Vizualize Complex Functions (Root of Not on Qubit)'''
 
 import matplotlib.pyplot as plt
 import numpy as np
