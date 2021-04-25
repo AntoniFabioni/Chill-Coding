@@ -15,7 +15,7 @@ def rx(t):
 
 # Parametric path for y-coordinate
 def ry(t):
-    return (1 + i)*t**2 - t/(2 - 3*i) + (1 - i)
+    return (1 + i)*t**2 - t/(2 - 3*i) + (2 - i)
 
 t_start, t_stop, number_of_points = 0, 1, 500
 
