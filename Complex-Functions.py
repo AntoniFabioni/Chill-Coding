@@ -35,8 +35,8 @@ vy_imag = [ry(t).imag for t in np.linspace(t_start, t_stop, number_of_points)]
 vx_out = [RootNot((vx_real[t] + i*vx_imag[t], vy_real[t] + i*vy_imag[t]))[0] for t in range(number_of_points)]
 vy_out = [RootNot((vx_real[t] + i*vx_imag[t], vy_real[t] + i*vy_imag[t]))[1] for t in range(number_of_points)]
 
-grad1 = [(0, 0.4, n/number_of_points) for n in range(number_of_points)]
-grad2 = [(0.5, 0, n/number_of_points) for n in range(number_of_points)]
+grad1 = [(0, 0.5, n/number_of_points) for n in range(number_of_points)]
+grad2 = [(0.6, 0.1, n/number_of_points) for n in range(number_of_points)]
 size = 3
 
 for n in range(number_of_points):
