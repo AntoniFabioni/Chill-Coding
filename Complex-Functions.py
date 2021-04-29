@@ -64,7 +64,7 @@ axs[1, 1].set_ylabel("Imaginary")
 plt.show()
 
 
-
+''' OLD CODE BELOW ... NOT USED IN FINAL PROGRAM '''
 
 # for t in np.linspace(t_start, t_stop, number_of_points):
 
