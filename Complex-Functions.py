@@ -9,11 +9,10 @@ matplotlib_axes_logger.setLevel('ERROR')
  
 i = complex(0, 1)
 
-# Parametric path for x-coordinate
+# Parametric path for x and y coordinates
 def rx(t):
     return np.cos(t) + i*np.sin(t)
 
-# Parametric path for y-coordinate
 def ry(t):
     return (1 + i)*t**2 - t/(2 - 3*i) + (2 - i)
 
