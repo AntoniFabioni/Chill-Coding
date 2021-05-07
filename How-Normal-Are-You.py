@@ -7,7 +7,9 @@ by N links (e.g., subbed to the same N YouTube channels).
 import numpy as np
 import matplotlib as plot
 
-me = []
-them = []
+me = {1,2,3}
+them = {2,3,4}
 
-# -------------------------
+intersection = me.intersection(them)
+
+print(intersection)
