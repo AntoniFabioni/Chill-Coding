@@ -7,9 +7,20 @@ by N links (e.g., subbed to the same N YouTube channels).
 import numpy as np
 import matplotlib as plot
 
-me = {1,2,3}
-them = {2,3,4}
+people = {
+    'me': {1,2,3},
+    'person1': {2,3,4},
+    'person2': {1,2,5},
+    'person3': {0}
+}
 
-intersection = me.intersection(them)
+def ShowSimilarities(dict, reference):
 
-print(intersection)
+    for key in dict:
+    
+        if key == reference:
+            continue
+
+        print(key, '->', dict[key].intersection(dict[reference]))
+
+ShowSimilarities(people, 'me')
