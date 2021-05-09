@@ -21,6 +21,6 @@ def ShowSimilarities(dict, reference):
         if key == reference:
             continue
 
-        print(key, '->', dict[key].intersection(dict[reference]))
+        print(key, ':',len(dict[key].intersection(dict[reference])), '->', dict[key].intersection(dict[reference]))
 
 ShowSimilarities(people, 'me')
