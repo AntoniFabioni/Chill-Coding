@@ -1,4 +1,4 @@
 # Chill-Coding
-A place to relax, learn, and enjoy new ideas.
-Most of the code here will be Python 3. These projects here have the main purpose
+A place to relax, learn, and try out new ideas.
+Most of this code will be in Python. These projects have the main purpose
 of testing out a proof of concept or quick idea.
