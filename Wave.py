@@ -28,7 +28,7 @@ dt = 0.05
 
 # Wave to be plotted
 def u(x, t):
-    return (np.cos(x + 3*c*t)**2 + np.cos(x - 2*c*t)**2)
+    return 2*(np.cos(x + 3*c*t)**2 + np.cos(x - 2*c*t)**2)
 
 a = []
 for i in range(500):
