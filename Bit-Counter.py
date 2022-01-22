@@ -9,7 +9,7 @@ def BrokenClock(tLimit, Count, Percent):
     while t < tLimit and Clock < Count:
         Clock += 1
         t += 1
-        RNG = randint(1, 100)
+        RNG = randint(1, 1000)/10
 
         if RNG <= Percent and Clock < Count:
             ErrorBit = 1 << randint(0, 3)
@@ -26,8 +26,8 @@ def BrokenPlot(Iterations, Resolution):
 
         y_i = 0
         for n in range(Iterations):
-            y_i += 1000 * BrokenClock(100, 15, i) / Iterations
-        y_i /= 1000
+            y_i += BrokenClock(100, 15, i)
+        y_i /= Iterations
 
         Ys.append(y_i)
 
@@ -37,4 +37,4 @@ def BrokenPlot(Iterations, Resolution):
     plt.ylabel("Time")
     plt.show()
 
-BrokenPlot(10000, 1000)
+BrokenPlot(20, 1000)
