@@ -1,4 +1,5 @@
 from random import randint
+import numpy as np
 import matplotlib.pyplot as plt
 
 def BrokenClock(tLimit, Count, Percent):
@@ -16,11 +17,12 @@ def BrokenClock(tLimit, Count, Percent):
 
     return t
 
-def BrokenPlot(Iterations):
+def BrokenPlot(Iterations, Resolution):
     
     Ys = []
+    Xs = np.linspace(0, 100, Resolution)
 
-    for i in range(101):
+    for i in Xs:
 
         y_i = 0
         for n in range(Iterations):
@@ -29,7 +31,10 @@ def BrokenPlot(Iterations):
 
         Ys.append(y_i)
 
-    plt.plot(Ys)
+    plt.plot(Xs, Ys, color="cornflowerblue")
+    plt.title("Expected Time to Reach 1111")
+    plt.xlabel("Probability of bit flip (%)")
+    plt.ylabel("Time")
     plt.show()
 
-BrokenPlot(1000)
+BrokenPlot(10000, 1000)
