@@ -37,4 +37,4 @@ def BrokenPlot(Iterations, Resolution):
     plt.ylabel("Time")
     plt.show()
 
-BrokenPlot(20, 1000)
+BrokenPlot(20000, 1000)
